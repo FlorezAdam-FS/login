@@ -1,0 +1,70 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if(pagename == "about"){%>
+        <li class="nav-item">
+          <a class="nav-link" href="about" style="color: orange">About</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="about" style="color: white">About</a>
+        </li>
+        <% } %> <% if(pagename == "projects"){%>
+        <li class="nav-item">
+          <a class="nav-link" href="projects" style="color: orange">Projects</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="projects" style="color: white">Projects</a>
+        </li>
+        <% } %> <% if(typeof(sess) != "undefined" && sess.loggedIn == true){ %>
+        <% if(pagename == "profile"){%>
+        <li class="nav-item">
+          <a class="nav-link" href="profile" style="color: orange">Profile</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="profile" style="color: white">Profile</a>
+        </li>
+        <% } %> <% if(pagename == "logout"){%>
+        <li class="nav-item">
+          <a class="nav-link" href="logout" style="color: orange">Logout</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="logout" style="color: white">Logout</a>
+        </li>
+        <% } %> <%}%>
+      </ul>
+      <form class="ms-auto form d-flex" action="login" method="POST">
+        <input
+          class="form-control me-2"
+          type="email"
+          name="email"
+          placeholder="email"
+        />
+        <input
+          class="form-control me-2"
+          type="password"
+          name="password"
+          placeholder="password"
+        />
+        <button class="btn btn-primary px-4" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</nav>
